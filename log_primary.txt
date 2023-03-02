@@ -1,0 +1,84 @@
+Dernière connexion : lun. 20 février 14:01:16 2023 à partir de 154.72.161.118
+
+       __| __|_ )
+       _| ( / AMI Amazon Linux 2
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-2/
+[ec2-user@ip-10-1-10-189 ~]$ ls
+[ec2-user@ip-10-1-10-189 ~]$ apt mise à jour
+-bash : apt : commande introuvable
+[ec2-user@ip-10-1-10-189 ~]$ apt-get mise à jour
+-bash : apt-get : commande introuvable
+[ec2-user@ip-10-1-10-189 ~]$ sudo yum install mysql
+Plugins chargés : extras_suggestions, langpacks, priorites, update-motd
+amzn2-core | 3.7 ko 00:00     
+Résolution des dépendances
+--> Exécution de la vérification des transactions
+---> Le paquet mariadb.x86_64 1:5.5.68-1.amzn2 sera installé
+--> Résolution de dépendance terminée
+
+Dépendances résolues
+
+================================================= =============================
+Taille du référentiel de la version de l'arche de packages
+================================================= =============================
+Installation :
+mariadb x86_64 1:5.5.68-1.amzn2 amzn2-core 8.8 M
+
+récapitulatif des transactions
+================================================= =============================
+Installer 1 paquet
+
+Taille totale du téléchargement : 8,8 M
+Taille installée : 49 M
+Est-ce correct [a/j/N] : a
+Téléchargement de packages :
+mariadb-5.5.68-1.amzn2.x86_64.rpm | 8,8 Mo 00:00     
+Exécution de la vérification des transactions
+Exécution d'un test de transaction
+Le test de la transaction a réussi
+Transaction en cours
+  Installation : 1:mariadb-5.5.68-1.amzn2.x86_64 1/1
+  Vérification : 1:mariadb-5.5.68-1.amzn2.x86_64 1/1
+
+Installée:
+  mariadb.x86_64 1:5.5.68-1.amzn2                                              
+
+Complet!
+[ec2-user@ip-10-1-10-189 ~]$ mysql -version
+ERREUR 2002 (HY000) : Impossible de se connecter au serveur MySQL local via le socket '/var/lib/mysql/mysql.sock' (2)
+[ec2-user@ip-10-1-10-189 ~]$ mysql --version
+mysql Ver 15.1 Distrib 5.5.68-MariaDB, pour Linux (x86_64) en utilisant readline 5.1
+[ec2-user@ip-10-1-10-189 ~]$ mysql -u admin -h udacityprimarydb.chypt5hoorga.us-east-1.rds.amazonaws.com
+
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MySQL connection id is 16
+Server version: 8.0.28 Source distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+MySQL [(none)]> select udacity;
+MySQL [udacity]> CREATE TABLE Lists(ID int, Name varchar(255));
+Query OK, 0 rows affected (0.10 sec)
+
+MySQL [udacity]> INSERT INTO Lists VALUES (1, "Dan");
+Query OK, 1 row affected (0.01 sec)
+
+MySQL [udacity]> show tables;
++-------------------+
+| Tables_in_udacity |
++-------------------+
+| Lists             |
++-------------------+
+1 row in set (0.01 sec)
+
+MySQL [udacity]> Select * from Lists;
++----------+----------+
+| ID       | Name     | 
++----------+----------+
+|        1 | Dan      | 
++----------+----------+
+1 rows in set (0.00 sec)

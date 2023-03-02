@@ -1,0 +1,19 @@
+Minimum RTO for a single AZ outage : 10 minutes 
+Desciption
+After the failure has occurred if we are in a 
+zone of availability it will take some time for the zone of availability to change.
+
+Minimum RTO for a single region outage: 60 minutes
+Desciption
+After the fault has occurred, the company's management must identify the problem
+ and then begin repairs until the system is back in service.
+
+Minimum RPO for a single AZ outage: 1 minute
+Desciption
+RPO or Recovery Point Objective, refers to the maximum amount of time it is acceptable to lose data during a failure.
+
+In our case we are dealing with AWS databases, so less than a minute.
+
+Minimum RPO for a single region outage: 5 minutes
+Desciption
+In this case it will take some time to switch to another region so it will take a few minutes.
